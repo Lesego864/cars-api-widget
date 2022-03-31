@@ -4,7 +4,7 @@ const availableColorsElem = document.querySelector(".availableColors");
 const availableBrandsElem = document.querySelector(".availableBrands");
 
 axios
-    .get("http://api-tutor.herokuapp.com/v1/cars")
+    .get("https://api-tutor.herokuapp.com/v1/cars")
     .then(function(result) {
         // console.log();
 
@@ -27,7 +27,7 @@ axios
         // li > < /li>
     });
 axios
-    .get("http://api-tutor.herokuapp.com/v1/colors")
+    .get("https://api-tutor.herokuapp.com/v1/colors")
     .then(function(result) {
         // console.log(result);
 
@@ -42,7 +42,7 @@ axios
         });
     });
 axios
-    .get("http://api-tutor.herokuapp.com/v1/makes")
+    .get("https://api-tutor.herokuapp.com/v1/makes")
     .then(function(result) {
         // console.log(result);
 
