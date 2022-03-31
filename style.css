@@ -1,11 +1,24 @@
 body {
-    background-color: aliceblue;
+    background-color: #F4F3EE;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    text-align: justify;
+    color: #463F3A;
 }
 
-caption {
-    margin-top: 2em;
+h2 {
+    color: #E0AFA0;
+}
+
+h4 {
+    margin-bottom: 0.3em;
+    color: #463F3A;
 }
 
 table {
-    margin-bottom: 2em;
+    color: #8A817C;
+}
+
+td {
+    padding-right: 1em;
 }
