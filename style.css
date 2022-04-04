@@ -1,216 +1,172 @@
 body {
-    background-color: #F4F3EE;
+    box-sizing: border-box;
+    color: #E3D0D8;
+    background-color: #827081;
     font-family: 'Times New Roman', Times, serif;
     font-style: oblique;
     text-align: justify;
-    color: #463F3A;
 }
 
-h2 {
-    color: #E0AFA0;
+ul {
+    display: list-item;
+    /* list-style-type: square; */
+    list-style-type: none;
 }
 
-h4 {
-    margin-bottom: 0.3em;
-    color: #463F3A;
+.form-select {
+    width: 150px;
 }
 
-table {
-    color: #8A817C;
-    text-align: center;
-    margin: auto;
+.search-btn {
+    padding-top: 7%;
+    padding-bottom: 1%;
 }
 
-td {
-    padding-right: 1em;
-    text-align: center;
+.cars {
+    color: white;
 }
-
-.dropbtn {
-    background-color: transparent;
-    color: #E0AFA0;
-    font-size: 16px;
-    font-style: italic;
-    border-radius: 1.5em;
-    cursor: pointer;
-}
-
-
-/* Dropdown button on hover & focus */
-
-.dropbtn:hover,
-.dropbtn:focus {
-    box-shadow: 5px 10px 20px #B1A7A6;
-    text-decoration: turquoise;
-}
-
-
-/* The search field */
-
-#myInput {
-    border-color: #343A40;
-    border-radius: 0.5em;
-    font-size: larger;
-    font-style: italic;
-    color: #660708;
-    background-color: #F5F3F4;
-}
-
-
-/* The search field when it gets focus/clicked on */
-
-#myInput:focus {
-    outline: 3px solid #ddd;
-}
-
-
-/* The container <div> - needed to position the dropdown content */
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-
-/* Dropdown Content (Hidden by Default) */
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    border: 1px solid #ddd;
-    z-index: 1;
-}
-
-
-/* Links inside the dropdown */
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-/* Change color of dropdown links on hover */
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-
-.show {
-    display: block;
-}
-
-
-/**
-*** SIMPLE GRID
-*** (C) ZACH COLE 2016
-**/
-
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
-
-/* UNIVERSAL */
-
-html,
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    left: 0;
-    top: 0;
-    font-size: 100%;
-    background-color: #F4F3EE;
-    text-align: center;
-    font-size: medium;
-    font-style: oblique;
-    font-family: 'Times New Roman', Times, serif;
-    color: #463F3A;
-}
-
-
-/* ROOT FONT STYLES */
-
-* {
-    font-family: 'Times New Roman', Times, serif;
-    color: #463F3A;
-    line-height: 1.5;
-}
-
-
-/* TYPOGRAPHY */
 
 h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.375rem;
+    margin-left: 3%;
+    color: #E7E6F7;
 }
 
 h4 {
-    font-size: 1.125rem;
-}
-
-h5 {
-    font-size: 1rem;
-}
-
-h6 {
-    font-size: 0.875rem;
+    margin-left: 3%;
+    color: #E7E6F7;
 }
 
 p {
-    font-size: 1.125rem;
-    font-weight: 200;
-    line-height: 1.8;
+    margin-left: 3%;
+    font-size: large;
+    color: #C6D2ED;
 }
 
-.font-light {
-    font-weight: 300;
+th {
+    color: #E7E6F7;
 }
 
-.font-regular {
-    font-weight: 400;
+.display-6 {
+    font-size: 1.5rem;
 }
 
-.font-heavy {
-    font-weight: 700;
+.text-warning {
+    --bs-text-opacity: 1;
+    color: #E7E6F7;
+    font-size: 2rem;
+    text-align: center, !important;
 }
 
 
-/* POSITIONING */
+/* .table-dark {
+    --bs-table-bg: #212529;
+    --bs-table-striped-bg: #2c3034;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373b3e;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #373b3e;
+    align-content: center;
+} */
 
-.left {
-    text-align: left;
+.colorFilter {
+    margin-left: 130%;
+    color: #E7E6F7;
 }
 
-.right {
-    text-align: right;
+.brandsFilter {
+    margin-left: 8%;
+    margin-right: 6%;
+    color: #E7E6F7;
+}
+
+#search {
+    margin-left: 11%;
+}
+
+.home {
+    margin-left: 5%;
+}
+
+.home2 {
+    margin-left: 8.4%;
+}
+
+.filterPage {
+    padding-top: 3%;
+    margin-left: 5%;
+}
+
+.carsInfoPage {
+    padding-top: 1%;
+    margin-left: 8%;
+}
+
+.carWidget {
+    padding-top: 2%;
+    margin-left: 5%;
+}
+
+.nav-item {
+    padding-right: 5%;
+    padding-top: 1%;
+}
+
+.table {
+    align-content: center;
+    color: #6D597A;
+    margin-right: 5%;
+}
+
+.thead {
+    color: #E7E6F7;
+}
+
+.btn-group button {
+    background-color: transparent;
+    /* Green background */
+    border: 1px solid #E0AFA0;
+    border-radius: 1.5em;
+    cursor: pointer;
+    /* Pointer/hand icon */
+    float: left;
+    /* Float the buttons side by side */
+    align-content: center;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+    /* Prevent double borders */
+}
+
+
+/* Clear floats (clearfix hack) */
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* Add a background color on hover */
+
+.btn-group button:hover {
+    box-shadow: 5px 10px 20px #C6D2ED;
+    background-color: transparent;
+    border: 1px solid #E0AFA0;
 }
 
 .center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
-
-.justify {
-    text-align: justify;
-}
-
-
-/* ==== GRID SYSTEM ==== */
 
 .container {
     width: 90%;

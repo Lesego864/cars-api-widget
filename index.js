@@ -1,98 +1,120 @@
 // console.log(axios);
-const carListElem = document.querySelector(".carList");
-const availableColorsElem = document.querySelector(".availableColors");
-const availableBrandsElem = document.querySelector(".availableBrands");
+const colors = document.querySelector('.colors');
+const brand = document.querySelector('.brands');
+const cars = document.querySelector('.cars');
 
+//variables needed for the filtering drop down
+const filterColor = document.getElementById('colors');
+const filterBrand = document.getElementById('brand');
+const filterButton = document.getElementById('search');
+const filterDisplay = document.querySelector('.search-result');
+
+const filterTemplateText = document.querySelector('.filterTemplate');
+const filterTemplate = Handlebars.compile(filterTemplateText.innerHTML);
+
+// const filterColor = document.getElementById('colors')
+
+const colorTemplateText = document.querySelector('.colourTemplate');
+// const filterTemplateText = document.querySelector('.filterTemplate');
+
+const colorTemplate = Handlebars.compile(colorTemplateText.innerHTML)
+    // const filterTemplate =  Handlebars.compile(filterTemplateText.innerHTML)
+
+const carsTemplateText = document.querySelector('.table');
+// const filterTemplateText = document.querySelector('.filterTemplate');
+
+const carsTemplate = Handlebars.compile(carsTemplateText.innerHTML)
+
+//Display of the three lists:
 axios
-    .get("https://api-tutor.herokuapp.com/v1/cars")
+    .get('https://api-tutor.herokuapp.com/v1/colors')
     .then(function(result) {
-        // console.log();
+        // colors.innerHTML = result.data
+        colors.innerHTML = colorTemplate({ color: result.data });
+        console.log(result.data);
 
-        // carListElem.innerHTML = hbsTemplate({ rows: result.data });
-
-        result.data.forEach(car => {
-            const li = document.createElement('tr');
-            li.innerHTML = `<tr>
-            <td>${car.make}</td>
-            <td>${car.model}</td>
-            <td>${car.color}</td>
-            <td>${car.price}</td>
-            <td>${car.reg_number}</td>
-            </tr>`
-            carListElem.appendChild(li);
-
-        });
-
-        // <
-        // li > < /li>
-    });
-axios
-    .get("https://api-tutor.herokuapp.com/v1/colors")
-    .then(function(result) {
-        // console.log(result);
-
-        result.data.forEach(color => {
-            const li = document.createElement('tr');
-            li.innerHTML = `<tr>
-            <td>${color}</td>
-            </tr>`
-
-            availableColorsElem.appendChild(li);
-
-        });
-    });
-axios
-    .get("https://api-tutor.herokuapp.com/v1/makes")
-    .then(function(result) {
-        // console.log(result);
-
-        result.data.forEach(make => {
-            const li = document.createElement('tr');
-            li.innerHTML = `<tr>
-            <td>${make}</td>
-            </tr>`
-
-            availableBrandsElem.appendChild(li);
-
-        });
     });
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+axios
+    .get('https://api-tutor.herokuapp.com/v1/makes')
+    .then(function(result) {
+        // colors.innerHTML = result.data
+        brand.innerHTML = colorTemplate({ color: result.data });
+        console.log(result.data);
 
-function filterFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    div = document.getElementById("myDropdown");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-        }
+    });
+
+axios
+    .get('https://api-tutor.herokuapp.com/v1/cars')
+    .then(function(result) {
+        // colors.innerHTML = result.data
+        cars.innerHTML = carsTemplate({ car: result.data });
+        console.log(result.data);
+
+    });
+
+//Drop down that can filter according to the make and color of the cars list:
+
+axios
+    .get('https://api-tutor.herokuapp.com/v1/colors')
+    .then(function(result) {
+        filterColor.innerHTML = filterTemplate({ filter: result.data });
+    });
+
+axios
+    .get('https://api-tutor.herokuapp.com/v1/makes')
+    .then(function(result) {
+        filterBrand.innerHTML = filterTemplate({ filter: result.data });
+    });
+
+
+var theColorValue = '';
+var theBrandValue = '';
+
+filterColor.addEventListener('change', function(e) {
+    theColorValue = e.target.value
+
+});
+
+filterBrand.addEventListener('change', function(e) {
+    theBrandValue = e.target.value
+
+});
+
+filterButton.addEventListener('click', function() {
+    if (theColorValue && theBrandValue) {
+        axios
+            .get(`https://api-tutor.herokuapp.com/v1/cars/make/${theBrandValue}/color/${theColorValue}`)
+            .then(function(result) {
+                console.log(result.data)
+                filterDisplay.innerHTML = filterTemplate({ filters: result.data });
+
+            });
+
+    } else if (theColorValue) {
+        axios
+            .get(`https://api-tutor.herokuapp.com/v1/cars/color/${theColorValue}`)
+            .then(function(result) {
+                console.log(result.data)
+                filterDisplay.innerHTML = filterTemplate({ filters: result.data });
+
+            });
+    } else if (theBrandValue) {
+        axios
+            .get(`https://api-tutor.herokuapp.com/v1/cars/make/${theBrandValue}`)
+            .then(function(result) {
+                console.log(result.data)
+                filterDisplay.innerHTML = filterTemplate({ filters: result.data });
+
+            });
+
     }
-}
+    // axios
+    //     .get(`https://api-tutor.herokuapp.com/v1/cars/make/${theBrandValue}/color/${theColorValue}`)
+    //     .then(function (result) {
+    //         console.log(result.data)
+    //         filterDisplay.innerHTML = filterTemplate({ filters: result.data });
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+    //     });
 
-function filterFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    div = document.getElementById("myDropdown");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-        }
-    }
-}
+});
